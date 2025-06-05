@@ -6,7 +6,7 @@ import sqlite3
 headers = {'Accept-Encoding': 'identity', 'User-Agent': 'Defined'}
 conn = sqlite3.connect("links.db", check_same_thread = False)
 cursor = conn.cursor()
-# cursor.execute("create table links (url text)")
+cursor.execute("create table if not exists links (url text)")
 
 def scrape(page):
     url = f"https://oceanofpdf.com/recently-added/page/{page}"
